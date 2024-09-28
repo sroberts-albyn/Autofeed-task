@@ -1,0 +1,41 @@
+#Autofeed
+#Sarah Roberts
+#27/09/24
+
+weights = []
+dogSize = 0
+total = 0
+message1 = ('This weight of food is suitable for your dog')
+message2 = ('This weight of food is not recommended for your dog')
+weight = -1
+
+for i in range(5):
+    while True:
+        weight = int(input('What is the weight of this container: '))
+        if 0 <= weight <= 200:
+            break
+        print('Invalid, re-enter')
+    total = total + weight
+    weights.append(weight)
+    
+dogSize = input('What is the size of the dog: ')
+if dogSize == 'small' and 110 <= total <= 140:
+    message = message1
+elif dogSize == 'medium' and 330 <= total <= 440:
+    message = message1
+elif dogSize == 'small' and 690 <= total <= 900:
+    message = message1
+else:
+    message = message2
+    
+avgWeight = round(total / 5, 1)
+
+number = 0
+for i in range(5):
+    print(weights[number])
+    
+print('The total weight is', total)
+
+print('The average weight of food is', avgWeight)
+
+print(message)
